@@ -6,6 +6,6 @@ order: 4
 
 Undergraduate student studying electronics and communication engineering.
 My interests lie in communication systems and VLSI.
-I recently started working on advancing Quantum Networking
+I recently started working on Quantum Networking.
 
 My CV can be found here.
