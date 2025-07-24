@@ -1,9 +1,9 @@
 ---
-title: Analog Frequency Divider Design using FET
+title: Digital Frequency Divider Design using FET
 date: 2024-11-17 12:00:00 -500
 categories: [simulation, EDA]
 tags: [mosfet, tanner tools, eda]     # TAG names should always be lowercase
-description:
+description: 
 toc: #false
 comments: false
 
@@ -58,4 +58,4 @@ When this circuit is run, we get the following waveforms.
 ![waveform](../clockdiv/waveform.JPG)
 _Output and input waveforms_
 
-This graph shows the INPUT and OUTPUT waveforms in red and green respectively. It is clearly seen the output is triggered every 8 clock cycles. The circuit this works as intended.
+This graph shows the INPUT and OUTPUT waveforms in red and green respectively. It is clearly seen the output is triggered every 8 clock cycles. The circuit hence works as intended.
