@@ -1,7 +1,7 @@
 ---
 title: Digital Frequency Divider Design using FET
 date: 2024-11-17 12:00:00 -500
-categories: [simulation, EDA]
+categories: [tech, EDA]
 tags: [mosfet, tanner tools, eda]     # TAG names should always be lowercase
 description: 
 toc: #false
