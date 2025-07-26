@@ -1,6 +1,6 @@
 ---
 title: NTP server for embedded applications
-date: 2023-10-10 12:00:00 -500
+date: 2023-10-10 12:00:00 +0530
 categories: [tech, embedded]
 tags: [ntp, embedded, nodemcu, esp8266]     # TAG names should always be lowercase
 description: 
