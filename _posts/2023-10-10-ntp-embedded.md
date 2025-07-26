@@ -19,7 +19,8 @@ Stratum 0 consists of high accuracy time keeping devices such as atomic clocks, 
 
 Some embedded applications aren't capable of keeping time when powered off, so we also use NTP to "load" the time initially. NTP is accessed through UDP port 123.
 
-![NTP schema](../ntp_alarm/NTP.png){: .left }
+![NTP schema](../ntp_alarm/NTP.png)
+_Schematic illustrating NTP_
 
 ##  Implementing the time server
 
@@ -111,7 +112,7 @@ void printCurrentTime() {
     int hour, minute, second;
     getCurrentTime(hour, minute, second);
     
-    *// Calculate day of week (epoch starts on Thursday = 4)*
+    // Calculate day of week (epoch starts on Thursday = 4)
     int dayOfWeek = ((currentEpochTime / 86400L) + 4) % 7;
     
     Serial.print(daysOfTheWeek[dayOfWeek]);
