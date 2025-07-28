@@ -1,0 +1,175 @@
+/* Force scrollbar to always be visible to prevent layout shift */
+html {
+  overflow-y: scroll;
+}
+
+/* Berkshire Hathaway inspired minimal styling */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0 15px 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px 0 10px 0;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+}
+
+a {
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #551A8B;
+}
+
+a:hover {
+  color: #0000EE;
+}
+
+ul {
+  margin: 10px 0;
+  padding-left: 30px;
+}
+
+li {
+  margin: 5px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+/* Responsive images */
+img {
+  max-width: 60%;  /* Makes all images max 60% of container width */
+  height: auto;
+  display: block;
+  margin: 15px auto;
+  border: 1px solid #ddd;
+}
+
+/* Left-aligned images */
+img.left {
+  float: left;
+  margin: 0 20px 15px 0;
+  max-width: 40%;
+}
+
+/* Right-aligned images */
+img.right {
+  float: right;
+  margin: 0 0 15px 20px;
+  max-width: 40%;
+}
+
+/* Clear floats after images */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Image captions (em/italic text after images) */
+img + em {
+  display: block;
+  text-align: center;
+  font-style: italic;
+  color: #666;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.header {
+  text-align: center;
+  border-bottom: 1px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.nav {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.nav a {
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.content {
+  margin: 20px 0;
+}
+
+.links-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.links-section {
+  margin: 30px 0;
+}
+
+.links-section h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Blog post styling */
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-list li {
+  margin: 15px 0;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.post-date {
+  color: #666;
+  font-size: 12px;
+}
+
+.post-title {
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.post-excerpt {
+  margin: 5px 0;
+  color: #333;
+}
+@import "code-highlight";

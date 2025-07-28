@@ -1,0 +1,43 @@
+# Site settings
+title: Anirudh A S
+description: A simple, clean website for serious business.
+baseurl: ""
+url: "https://anirudhas-2004.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:title/
+
+# Rouge syntax highlighting
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Rouge syntax highlighting settings
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    line_numbers: false
+    block:
+      line_numbers: false
+
+# Collections for organizing content
+collections:
+  links:
+    output: false
+
+# Exclude files from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Plugins (comment out if having issues)
+# plugins:
+#   - jekyll-feed
+#   - jekyll-sitemap
