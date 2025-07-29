@@ -25,6 +25,7 @@
 
     <div class="footer">
         <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
+        <p><a href="#" onclick="localStorage.clear(); sessionStorage.clear(); location.reload(true); return false;" style="text-decoration: none;">🔄 Refresh</a></p>
     </div>
 </body>
 </html>
