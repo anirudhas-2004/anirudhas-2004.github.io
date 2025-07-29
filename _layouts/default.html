@@ -14,8 +14,6 @@
         <div class="nav">
             <a href="{{ '/' | relative_url }}">Home</a>
             <a href="{{ '/blog' | relative_url }}">Projects</a>
-            <a href="{{ '/links' | relative_url }}">Links</a>
-            <a href="{{ '/about' | relative_url }}">About</a>
         </div>
     </div>
 
@@ -25,7 +23,7 @@
 
     <div class="footer">
         <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-        <p><a href="#" onclick="localStorage.clear(); sessionStorage.clear(); location.reload(true); return false;" style="text-decoration: none;">🔄 Refresh</a></p>
+        <p><a href="#" onclick="localStorage.clear(); sessionStorage.clear(); location.reload(true); return false;" style="text-decoration: none;">Refresh site</a></p>
     </div>
 </body>
 </html>
