@@ -5,7 +5,7 @@ title: Home
 
 # About Me
 
-Hi, I am **Anirudh A S**, currently pursuing a B. Tech in **Electroics and Communication Engineering** at PES University.
+Hi, I am **Anirudh A S**, currently pursuing my B. Tech in **Electronics and Communication Engineering** at PES University.
 I am interested in VLSI design and Communication Systems.
 
 This website shows some of the projects I've worked on.
