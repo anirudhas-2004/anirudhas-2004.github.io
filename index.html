@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GATE 2026 Countdown</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #00ff41;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41; }
+            to { text-shadow: 0 0 30px #00ff41, 0 0 60px #00ff41, 0 0 80px #00ff41; }
+        }
+
+        .countdown-display {
+            background: rgba(0, 255, 65, 0.1);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 3rem 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 0 30px rgba(0, 255, 65, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .countdown-display::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(0, 255, 65, 0.1),
+                transparent
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .time-value {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-shadow: 0 0 15px #00ff41;
+            position: relative;
+            z-index: 1;
+        }
+
+        .time-label {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .toggle-container {
+            margin: 2rem 0;
+        }
+
+        .toggle-btn {
+            background: transparent;
+            border: 2px solid #00ff41;
+            color: #00ff41;
+            padding: 12px 30px;
+            margin: 0 10px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toggle-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(0, 255, 65, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .toggle-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .toggle-btn:hover {
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
+        }
+
+        .toggle-btn.active {
+            background: #00ff41;
+            color: #0a0a0a;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
+        }
+
+        .syllabus-link {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .syllabus-link a {
+            color: #00ff41;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .syllabus-link a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px #00ff41;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .time-value {
+                font-size: 2.5rem;
+            }
+
+            .toggle-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>GATE 2026</h1>
+        
+        <div class="countdown-display">
+            <div class="time-value" id="timeDisplay">Loading...</div>
+            <div class="time-label" id="timeLabel"></div>
+        </div>
+
+        <div class="toggle-container">
+            <button class="toggle-btn active" id="daysBtn" onclick="setMode('days')">Days</button>
+            <button class="toggle-btn" id="weeksBtn" onclick="setMode('weeks')">Weeks</button>
+        </div>
+    </div>
+
+    <div class="syllabus-link">
+        <a href="https://gate2026.iitg.ac.in/doc/GATE2026_Syllabus/EC_2026_Syllabus.pdf" target="_blank">
+            View EC Syllabus →
+        </a>
+    </div>
+
+    <script>
+        const targetDate = new Date('February 15, 2026 00:00:00').getTime();
+        let currentMode = 'days';
+
+        function setMode(mode) {
+            currentMode = mode;
+            document.getElementById('daysBtn').classList.toggle('active', mode === 'days');
+            document.getElementById('weeksBtn').classList.toggle('active', mode === 'weeks');
+            updateCountdown();
+        }
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('timeDisplay').textContent = 'EXAM DAY!';
+                document.getElementById('timeLabel').textContent = 'Good luck! 🎯';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (currentMode === 'days') {
+                document.getElementById('timeDisplay').textContent = 
+                    `${days}:${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                document.getElementById('timeLabel').textContent = 'Days : Hours : Minutes : Seconds';
+            } else {
+                const weeks = Math.floor(days / 7);
+                const remainingDays = days % 7;
+                document.getElementById('timeDisplay').textContent = 
+                    `${weeks} weeks ${remainingDays} days`;
+                document.getElementById('timeLabel').textContent = 'Time Remaining';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
