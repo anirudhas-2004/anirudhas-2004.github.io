@@ -138,6 +138,31 @@
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.6);
         }
 
+        .latin-motto {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            font-style: italic;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #ff0000, #ff4500, #ffa500, #ffff00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fireGlow 2s ease-in-out infinite alternate;
+            font-weight: 600;
+        }
+
+        @keyframes fireGlow {
+            from { 
+                filter: drop-shadow(0 0 10px rgba(255, 69, 0, 0.8)) 
+                        drop-shadow(0 0 20px rgba(255, 140, 0, 0.6));
+            }
+            to { 
+                filter: drop-shadow(0 0 20px rgba(255, 69, 0, 1)) 
+                        drop-shadow(0 0 30px rgba(255, 140, 0, 0.8))
+                        drop-shadow(0 0 40px rgba(255, 165, 0, 0.6));
+            }
+        }
+
         .syllabus-link {
             position: fixed;
             bottom: 20px;
@@ -170,6 +195,10 @@
                 font-size: 0.9rem;
                 margin: 5px;
             }
+
+            .latin-motto {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -185,6 +214,10 @@
         <div class="toggle-container">
             <button class="toggle-btn active" id="daysBtn" onclick="setMode('days')">Days</button>
             <button class="toggle-btn" id="weeksBtn" onclick="setMode('weeks')">Weeks</button>
+        </div>
+
+        <div class="latin-motto">
+            Aut viam inveniam aut faciam
         </div>
     </div>
 
